@@ -19,8 +19,14 @@ class App extends Component {
           <LoadingBar style={{ zIndex: 9999 }} />
           <Nav />
           <div className='container' style={{ marginTop: '75px' }}>
-            <Route path='/' exact component={Dashboard} />
-            <Route path='/login' component={LoginPage} />
+            {
+              this.props.loggedIn === false
+              ? <LoginPage />
+              : <Fragment>
+                  <Route path='/' exact component={Dashboard} />
+                  <Route path='/login' component={LoginPage} />
+                </Fragment>
+            }
           </div>
         </Fragment>
       </Router>
@@ -28,4 +34,10 @@ class App extends Component {
   }
 }
 
-export default connect()(App)
+function mapStateToProps({ authedUser }) {
+  return {
+    loggedIn: authedUser !== null
+  }
+}
+
+export default connect(mapStateToProps)(App)

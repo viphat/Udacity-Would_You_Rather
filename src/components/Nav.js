@@ -1,8 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import { setAuthedUser } from '../actions/authedUser'
 
 class Nav extends Component {
+  handleLogout = () => {
+    const { loggedIn, dispatch} = this.props
+    if (loggedIn === true) {
+      dispatch(setAuthedUser(null))
+    }
+  }
+
   render() {
     return (
       <nav className='navbar navbar-expand-lg navbar-dark bg-dark fixed-top'>
@@ -30,7 +38,7 @@ class Nav extends Component {
                     ? <NavLink to='/login' className='nav-link' activeClassName='active'>
                         Log in
                       </NavLink>
-                    : <a href='#' className='nav-link'>Log out</a>
+                    : <a href='#' onClick={this.handleLogout} className='nav-link'>Log out</a>
                 }
               </li>
             </ul>
