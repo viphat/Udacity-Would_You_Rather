@@ -22,18 +22,25 @@ class Nav extends Component {
               </li>
               <li className='nav-item'>
                 <NavLink to='/questions/new' className='nav-link' activeClassName='active'>
-                  Ask new question
+                  Ask
                 </NavLink>
               </li>
               <li className='nav-item'>
-                { this.props.loggedIn === true
+                { this.props.loggedIn === false
                     ? <NavLink to='/login' className='nav-link' activeClassName='active'>
                         Log in
                       </NavLink>
-                    : <a>Log out</a>
+                    : <a href='#' className='nav-link'>Log out</a>
                 }
               </li>
             </ul>
+            { this.props.loggedIn === true && (
+              <ul className='navbar-nav navbar-right'>
+                <div className='navbar-avatar'>
+                  <img src={this.props.userAvatar} />
+                </div>
+              </ul>
+            )}
           </div>
         </div>
       </nav>
@@ -41,9 +48,10 @@ class Nav extends Component {
   }
 }
 
-function mapStateToProps({ authedUser }) {
+function mapStateToProps({ authedUser, users }) {
   return {
-    loggedIn: authedUser === null
+    loggedIn: authedUser !== null,
+    userAvatar: authedUser === null ? null : users[authedUser].avatarURL
   }
 }
 

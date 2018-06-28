@@ -1,3 +1,19 @@
-body {
+body {  }
 
+.navbar-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow:
+    inset 0 0 0 2px rgba(255,255,255,0.6),
+    0 1px 1px rgba(0,0,0,0.1);
+  background-color: transparent !important;
+  z-index: 999;
+}
+
+.navbar-avatar img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
 }

@@ -1,16 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import LoginPage from './LoginPage'
-import Nav from './Nav'
 
 class Dashboard extends Component {
   render() {
     return (
       <div>
-        <Nav />
-        { this.props.loggedIn === true
+        { this.props.loggedIn === false
             ? <LoginPage />
-            : <div>Home Page</div>
+            : <div>Dashboard</div>
         }
       </div>
     )
@@ -19,7 +17,7 @@ class Dashboard extends Component {
 
 function mapStateToProps({ authedUser }) {
   return {
-    loggedIn: authedUser === null
+    loggedIn: authedUser !== null
   }
 }
 

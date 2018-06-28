@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import Dashboard from './Dashboard'
+import Nav from './Nav'
+import LoginPage from './LoginPage'
 import LoadingBar from 'react-redux-loading'
 
 class App extends Component {
@@ -14,11 +16,11 @@ class App extends Component {
     return (
       <Router>
         <Fragment>
-          <LoadingBar />
-          <div className='container'>
-            <div>
-              <Route path='/' exact component={Dashboard} />
-            </div>
+          <LoadingBar style={{ zIndex: 9999 }} />
+          <Nav />
+          <div className='container' style={{ marginTop: '75px' }}>
+            <Route path='/' exact component={Dashboard} />
+            <Route path='/login' component={LoginPage} />
           </div>
         </Fragment>
       </Router>
