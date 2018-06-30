@@ -31,10 +31,19 @@ ul.questions-list li:first-child {
   margin-top: 1rem;
 }
 
-ul.questions-list.unanswered li .card-block {
+.answer-form {
   padding: 10px;
 }
 
 ul.questions-list .card {
   min-width: 550px;
+}
+
+.card-header-link {
+  text-decoration: none !important;
+  color: #212529 !important;
+}
+
+.card-header-link .card-header {
+  min-height: 75px;
 }

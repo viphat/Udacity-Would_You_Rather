@@ -21,7 +21,7 @@ class Dashboard extends Component {
     return (
       <div>
         <div>Welcome <strong>{currentUser.name}</strong>, have a nice day!</div>
-        <div className='row col-md-12'>
+        <div className='row col-md-12'  style={{ marginTop: '10px' }}>
           <div className='custom-control custom-radio custom-control-inline'>
             <input type='radio' id='unansweredQuestionsRadio' name='questionsType' className='custom-control-input' value='unanswered' defaultChecked onChange={this.handleQuestionTypeChange}/>
             <label className='custom-control-label' htmlFor='unansweredQuestionsRadio'>Unanswered</label>
@@ -36,17 +36,23 @@ class Dashboard extends Component {
             questionsType === 'unanswered'
               ?
                 <ul className='questions-list unanswered'>
-                  { unansweredQuestionIds.map((questionId) => (
-                    <li key={questionId}>
-                      <UnansweredQuestion id={questionId} onDashboard/>
+                  { unansweredQuestionIds.length === 0 && (
+                    <li>Congratulations! You have answered all questions.</li>
+                  )}
+                  { unansweredQuestionIds.length > 0 && unansweredQuestionIds.map((qid) => (
+                    <li key={qid}>
+                      <UnansweredQuestion id={qid} onDashboard/>
                     </li>
                   ))}
                 </ul>
               :
                 <ul className='questions-list answered'>
-                  { answeredQuestionIds.map((questionId) => (
-                    <li key={questionId}>
-                      <AnsweredQuestion id={questionId} />
+                  { answeredQuestionIds.length === 0 && (
+                    <li>You didn't answer any questions.</li>
+                  )}
+                  { answeredQuestionIds.length > 0 && answeredQuestionIds.map((qid) => (
+                    <li key={qid}>
+                      <AnsweredQuestion id={qid} onDashboard/>
                     </li>
                   ))}
                 </ul>

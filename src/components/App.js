@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import Dashboard from './Dashboard'
 import Nav from './Nav'
+import Question from './Question'
 import LoginPage from './LoginPage'
 import LoadingBar from 'react-redux-loading'
 
@@ -24,6 +25,7 @@ class App extends Component {
               ? <LoginPage />
               : <Fragment>
                   <Route path='/' exact component={Dashboard} />
+                  <Route path='/questions/:id' component={Question} />
                   <Route path='/login' component={LoginPage} />
                 </Fragment>
             }
