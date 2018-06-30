@@ -47,3 +47,7 @@ ul.questions-list .card {
 .card-header-link .card-header {
   min-height: 75px;
 }
+
+nav.navbar {
+  min-height: 64px;
+}

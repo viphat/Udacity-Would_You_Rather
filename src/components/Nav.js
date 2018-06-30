@@ -15,7 +15,7 @@ class Nav extends Component {
     return (
       <nav className='navbar navbar-expand-lg navbar-dark bg-dark fixed-top'>
         <div className='container'>
-          <NavLink to='/' exact className='navbar-brand'>
+          <NavLink to='/' exact className='navbar-brand' activeClassName='active'>
             Would You Rather...?
           </NavLink>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,4 +69,4 @@ function mapStateToProps({ authedUser, users }) {
   }
 }
 
-export default connect(mapStateToProps)(Nav)
+export default connect(mapStateToProps, null, null, { pure: false })(Nav)
