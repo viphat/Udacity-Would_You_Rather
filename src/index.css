@@ -51,3 +51,7 @@ ul.questions-list .card {
 nav.navbar {
   min-height: 64px;
 }
+
+table.table td {
+  vertical-align: middle;
+}
