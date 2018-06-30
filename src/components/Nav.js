@@ -38,14 +38,14 @@ class Nav extends Component {
                     ? <NavLink to='/login' className='nav-link' activeClassName='active'>
                         Log in
                       </NavLink>
-                    : <a href='#' onClick={this.handleLogout} className='nav-link'>Log out</a>
+                    : <a style={{cursor: 'pointer'}} onClick={this.handleLogout} className='nav-link'>Log out</a>
                 }
               </li>
             </ul>
             { this.props.loggedIn === true && (
               <ul className='navbar-nav navbar-right'>
                 <div className='navbar-avatar'>
-                  <img src={this.props.userAvatar} />
+                  <img src={this.props.userAvatar} alt={this.props.username} />
                 </div>
               </ul>
             )}
@@ -59,7 +59,8 @@ class Nav extends Component {
 function mapStateToProps({ authedUser, users }) {
   return {
     loggedIn: authedUser !== null,
-    userAvatar: authedUser === null ? null : users[authedUser].avatarURL
+    userAvatar: authedUser === null ? null : users[authedUser].avatarURL,
+    username: authedUser === null ? null : users[authedUser].name
   }
 }
 
