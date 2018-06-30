@@ -1,6 +1,6 @@
 body {  }
 
-.navbar-avatar {
+.user-avatar {
   width: 48px;
   height: 48px;
   border-radius: 50%;
@@ -12,8 +12,29 @@ body {  }
   z-index: 999;
 }
 
-.navbar-avatar img {
+.user-avatar img {
   width: 48px;
   height: 48px;
   border-radius: 50%;
+}
+
+ul.questions-list {
+  list-style: none;
+  padding: 0px;
+}
+
+ul.questions-list li {
+  margin-bottom: 1rem;
+}
+
+ul.questions-list li:first-child {
+  margin-top: 1rem;
+}
+
+ul.questions-list.unanswered li .card-block {
+  padding: 10px;
+}
+
+ul.questions-list .card {
+  min-width: 550px;
 }

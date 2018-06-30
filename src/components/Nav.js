@@ -44,7 +44,7 @@ class Nav extends Component {
             </ul>
             { this.props.loggedIn === true && (
               <ul className='navbar-nav navbar-right'>
-                <div className='navbar-avatar'>
+                <div className='user-avatar'>
                   <img src={this.props.userAvatar} alt={this.props.username} />
                 </div>
               </ul>

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import AnsweredQuestion from './AnsweredQuestion'
+import UnansweredQuestion from './UnansweredQuestion'
 
 class Dashboard extends Component {
   state = {
@@ -18,7 +20,7 @@ class Dashboard extends Component {
     const { questionsType } = this.state
     return (
       <div>
-        <h6>Welcome {currentUser.name}, have a nice day!</h6>
+        <div>Welcome <strong>{currentUser.name}</strong>, have a nice day!</div>
         <div className='row col-md-12'>
           <div className='custom-control custom-radio custom-control-inline'>
             <input type='radio' id='unansweredQuestionsRadio' name='questionsType' className='custom-control-input' value='unanswered' defaultChecked onChange={this.handleQuestionTypeChange}/>
@@ -31,9 +33,23 @@ class Dashboard extends Component {
         </div>
         <div className='row col-md-12'>
           {
-            questionsType === 'answered'
-              ? <span>{ answeredQuestionIds.length }</span>
-              : <span>{ unansweredQuestionIds.length }</span>
+            questionsType === 'unanswered'
+              ?
+                <ul className='questions-list unanswered'>
+                  { unansweredQuestionIds.map((questionId) => (
+                    <li key={questionId}>
+                      <UnansweredQuestion id={questionId} onDashboard/>
+                    </li>
+                  ))}
+                </ul>
+              :
+                <ul className='questions-list answered'>
+                  { answeredQuestionIds.map((questionId) => (
+                    <li key={questionId}>
+                      <AnsweredQuestion id={questionId} />
+                    </li>
+                  ))}
+                </ul>
           }
         </div>
       </div>
