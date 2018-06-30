@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { formatQuestion } from '../utils/helpers'
-import CardHeader from './CardHeader'
 import { Link, withRouter } from 'react-router-dom'
+import CardHeader from './CardHeader'
 
 class AnsweredQuestion extends Component {
   render() {
     const { id, onDashboard, question, selectedAnswer } = this.props
+
     return (
       <div className='card'>
         { onDashboard === true
