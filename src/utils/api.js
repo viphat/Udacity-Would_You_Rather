@@ -2,6 +2,7 @@ import {
   _getUsers,
   _getQuestions,
   _saveQuestionAnswer,
+  _saveQuestion,
 } from './_DATA.js'
 
 export function getData () {
@@ -15,3 +16,4 @@ export function getData () {
 }
 
 export { _saveQuestionAnswer as saveQuestionAnswer }
+export { _saveQuestion as saveQuestion }

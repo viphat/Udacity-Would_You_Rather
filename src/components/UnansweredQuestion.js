@@ -27,7 +27,7 @@ class UnansweredQuestion extends Component {
       dispatch(handleSaveQuestionAnswer({ authedUser, qid: id, answer: selectedAnswer }))
       dispatch(refreshData())
       if (!onDashboard) {
-        this.props.history.push('/')
+        this.props.history.push(`/questions/${id}`)
       }
     } else {
       alert('You must select an answer before submit!')
