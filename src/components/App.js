@@ -8,6 +8,8 @@ import Question from './Question'
 import LoginPage from './LoginPage'
 import NotFoundPage from './NotFoundPage'
 import LoadingBar from 'react-redux-loading'
+import NewQuestion from './NewQuestion'
+import Leaderboard from './Leaderboard'
 
 class App extends Component {
   componentDidMount() {
@@ -24,14 +26,15 @@ class App extends Component {
             {
               this.props.loggedIn === false
               ? <LoginPage />
-              : <Fragment>
-                  <Switch>
-                    <Route path='/' exact component={Dashboard} />
-                    <Route path='/questions/:id' component={Question} />
-                    <Route path='/login' component={LoginPage} />
-                    <Route path='*' component={NotFoundPage} />
-                  </Switch>
-                </Fragment>
+              :
+                <Switch>
+                  <Route path='/' exact component={Dashboard} />
+                  <Route path='/questions/:id' component={Question} />
+                  <Route path='/new' component={NewQuestion} />
+                  <Route path='/leaderboard' component={Leaderboard} />
+                  <Route path='/login' component={LoginPage} />
+                  <Route path='*' component={NotFoundPage} />
+                </Switch>
             }
           </div>
         </Fragment>
