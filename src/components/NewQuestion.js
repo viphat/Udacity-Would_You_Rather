@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleAddQuestion } from '../actions/questions'
+import { refreshData } from '../actions/shared'
 
 class NewQuestion extends Component {
   handleSubmit = (e) => {
@@ -13,6 +14,7 @@ class NewQuestion extends Component {
 
     const { dispatch } = this.props
     dispatch(handleAddQuestion({ optionOneText, optionTwoText }))
+    dispatch(refreshData())
     this.props.history.push('/')
   }
 
